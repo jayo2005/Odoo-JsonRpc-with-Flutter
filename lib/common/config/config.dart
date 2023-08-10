@@ -4,9 +4,9 @@ class Config {
   Config._();
 
   ///Odoo URLs
-  static const String OdooDevURL = "http://192.168.20.186:10016";
-  static const String OdooProdURL = "http://192.168.20.186:10016";
-  static const String OdooUATURL = "http://192.168.20.186:10016";
+  static const String OdooDevURL = "http://192.168.20.186:10016/";
+  static const String OdooProdURL = "http://192.168.20.186:10016/";
+  static const String OdooUATURL = "http://192.168.20.186:10016/";
 
   /// SelfSignedCert:
   static const selfSignedCert = false;
