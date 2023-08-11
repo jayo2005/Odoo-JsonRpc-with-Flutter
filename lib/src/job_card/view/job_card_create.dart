@@ -17,7 +17,15 @@ class _JobCardCreateState extends State<JobCardCreate> {
         child: Form(
           child: Column(
             children: <Widget>[
-              // TODO: Add form fields here
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Job Title'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  // TODO: Implement form submission logic
+                },
+                child: Text('Submit'),
+              ),
             ],
           ),
         ),
