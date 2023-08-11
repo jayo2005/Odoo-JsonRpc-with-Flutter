@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: _currentIndex == 0 ? _buildContacts() : JobCardCreate(),
+      body: _currentIndex == 0 ? _buildContacts() : Container(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         items: [

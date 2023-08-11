@@ -14,8 +14,12 @@ class _JobCardCreateState extends State<JobCardCreate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Job Card Page'),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBar(
+          title: Text('SoftCroft'),
+          automaticallyImplyLeading: false,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
