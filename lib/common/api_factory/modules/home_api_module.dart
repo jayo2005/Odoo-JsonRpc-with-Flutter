@@ -16,3 +16,22 @@ resPartnerApi({required OnResponse<ResPartnerModel> onResponse}) {
     },
   );
 }
+
+createContactApi({
+  required String name,
+  required String email,
+}) {
+  Api.create(
+    model: "res.partner",
+    values: {
+      "name": name,
+      "email": email,
+    },
+    onResponse: (response) {
+      print('Contact created with id: ${response}');
+    },
+    onError: (error, data) {
+      handleApiError(error);
+    },
+  );
+}

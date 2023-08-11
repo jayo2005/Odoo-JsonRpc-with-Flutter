@@ -56,6 +56,15 @@ class _HomeState extends State<Home> {
           });
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewContactForm()),
+          );
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 
