@@ -15,56 +15,22 @@ class _JobCardCreateState extends State<JobCardCreate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create Job Card'),
+        title: Text('Job Card Page'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                controller: _customerIdController,
-                decoration: InputDecoration(labelText: 'Customer ID'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a customer ID';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _regNoController,
-                decoration: InputDecoration(labelText: 'Reg No'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a registration number';
-                  }
-                  return null;
-                },
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    createJobCardApi(
-                      customerId: _customerIdController.text,
-                      regNo: _regNoController.text,
-                      onSuccess: () {
-                        // Handle success here
-                        print('Job card created successfully');
-                        Navigator.pop(context);
-                      },
-                      onError: () {
-                        // Handle error here
-                        print('Failed to create job card');
-                      },
-                    );
-                  }
-                },
-                child: Text('Submit'),
-              ),
-            ],
-          ),
+        child: Column(
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => JobCardCreate()),
+                );
+              },
+              child: Text('Create Job Card'),
+            ),
+          ],
         ),
       ),
     );
