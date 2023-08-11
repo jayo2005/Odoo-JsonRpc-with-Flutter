@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:odoo_common_code_latest/common/api_factory/modules/job_card_api_module.dart';
-import 'package:your_package/job_card/view/job_card_main.dart';
 
 class JobCardCreate extends StatefulWidget {
   @override
