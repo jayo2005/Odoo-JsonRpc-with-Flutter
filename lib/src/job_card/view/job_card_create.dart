@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:odoo_common_code_latest/common/api_factory/modules/job_card_api_module.dart';
-import 'package:your_app_name/src/job_card/view/job_card_main.dart'; // Replace 'your_app_name' with your actual app name
+import 'package:ODOO-JsonRpc-with-Flutter/src/job_card/view/job_card_main.dart'; // Replace 'your_app_name' with your actual app name
 
 class JobCardCreate extends StatefulWidget {
   @override
