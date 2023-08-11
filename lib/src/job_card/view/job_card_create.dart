@@ -26,7 +26,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => JobCardCreate()),
-                );
+                ).then((value) => setState(() {}));
               },
               child: Text('Create Job Card'),
             ),
