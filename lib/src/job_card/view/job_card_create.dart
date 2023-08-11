@@ -18,11 +18,20 @@ class _JobCardCreateState extends State<JobCardCreate> {
           child: Column(
             children: <Widget>[
               TextFormField(
-                decoration: InputDecoration(labelText: 'Job Title'),
+                decoration: InputDecoration(labelText: 'Customer ID'),
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Reg No'),
               ),
               ElevatedButton(
                 onPressed: () {
-                  // TODO: Implement form submission logic
+                  if (_formKey.currentState!.validate()) {
+                    createJobCardApi(
+                      customerId: _customerIdController.text,
+                      regNo: _regNoController.text,
+                    );
+                    Navigator.pop(context);
+                  }
                 },
                 child: Text('Submit'),
               ),
