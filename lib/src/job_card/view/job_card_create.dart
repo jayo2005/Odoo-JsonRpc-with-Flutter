@@ -20,7 +20,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
               TextFormField(
                 decoration: InputDecoration(labelText: 'Job Title'),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   // TODO: Implement form submission logic
                 },
