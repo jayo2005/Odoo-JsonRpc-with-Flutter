@@ -59,10 +59,17 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NewContactForm()),
-          );
+          if (_currentIndex == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NewContactForm()),
+            );
+          } else if (_currentIndex == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => JobCardCreate()),
+            );
+          }
         },
         child: Icon(Icons.add),
       ),
