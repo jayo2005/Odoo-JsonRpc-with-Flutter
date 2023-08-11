@@ -28,4 +28,9 @@ class JobCard(models.Model):
     delivery_date = fields.Date(string="Delivery Date", required=False)
     dtc_code = fields.Char(string="DTC Errors")
 
+    @api.model
+    def create_job_card(self):
+        # Here you can add the logic to create a new job card
+        pass
+
    
