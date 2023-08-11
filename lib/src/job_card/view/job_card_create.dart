@@ -52,12 +52,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                       onSuccess: () {
                         // Handle success here
                         print('Job card created successfully');
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  JobCardMain()), // Replace 'JobCardMain' with your actual main job card screen widget
-                        );
+                        Navigator.pop(context);
                       },
                       onError: () {
                         // Handle error here
