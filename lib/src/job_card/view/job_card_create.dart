@@ -57,6 +57,12 @@ class _JobCardCreateState extends State<JobCardCreate> {
                             createJobCardApi(
                               customerId: _customerIdController.text,
                               regNo: _regNoController.text,
+                              onSuccess: (response) {
+                                // Handle success here
+                              },
+                              onError: (error) {
+                                // Handle error here
+                              },
                             );
                             Navigator.pop(context);
                           }
