@@ -6,6 +6,7 @@ import 'package:odoo_common_code_latest/common/config/app_colors.dart';
 import 'package:odoo_common_code_latest/common/utils/utils.dart';
 import 'package:odoo_common_code_latest/common/widgets/main_container.dart';
 import 'package:odoo_common_code_latest/src/home/controller/home_controller.dart';
+import 'package:odoo_common_code_latest/src/job_card/view/job_card_create.dart';
 
 class Home extends StatefulWidget {
   @override
