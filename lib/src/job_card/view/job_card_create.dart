@@ -10,6 +10,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _formKey = GlobalKey<FormState>();
   final _customerIdController = TextEditingController();
   final _regNoController = TextEditingController();
+  final _imageController = TextEditingController();
+  File? _image;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,18 @@ class _JobCardCreateState extends State<JobCardCreate> {
                   return null;
                 },
               ),
+              ElevatedButton(
+                onPressed: () async {
+                  final pickedFile = await ImagePicker().getImage(source: ImageSource.camera);
+                  if (pickedFile != null) {
+                    _image = File(pickedFile.path);
+                    _imageController.text = base64Encode(_image!.readAsBytesSync());
+                  }
+                },
+                child: Text('Take Picture'),
+              ),
+              if (_image != null)
+                Image.file(_image!),
               TextFormField(
                 controller: _regNoController,
                 decoration: InputDecoration(labelText: 'Registration Number'),
@@ -50,9 +64,10 @@ class _JobCardCreateState extends State<JobCardCreate> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    createJobCardApi(
+                    createJobCardApiWithImage(
                       customerId: _customerIdController.text,
                       regNo: _regNoController.text,
+                      avatar: _imageController.text,
                       onSuccess: (response) {
                         showDialog(
                           context: context,
