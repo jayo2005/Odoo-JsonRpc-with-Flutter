@@ -1,5 +1,5 @@
-import 'package:your_project/common/utils/utils.dart';
-import 'api.dart';
+import 'package:odoo_common_code_latest/common/utils/utils.dart';
+import 'package:odoo_common_code_latest/common/api_factory/api.dart';
 
 createJobCardApi({
   required String customerId,
