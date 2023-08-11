@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:odoo_common_code_latest/common/api_factory/modules/job_card_api_module.dart';
+import 'package:your_app_name/src/job_card/view/job_card_main.dart'; // Replace 'your_app_name' with your actual app name
 
 class JobCardCreate extends StatefulWidget {
   @override
@@ -52,7 +53,10 @@ class _JobCardCreateState extends State<JobCardCreate> {
                       onSuccess: () {
                         // Handle success here
                         print('Job card created successfully');
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => JobCardMain()), // Replace 'JobCardMain' with your actual main job card screen widget
+                        );
                       },
                       onError: () {
                         // Handle error here
