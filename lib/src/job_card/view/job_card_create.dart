@@ -57,6 +57,44 @@ class _JobCardCreateState extends State<JobCardCreate> {
                             createJobCardApi(
                               customerId: _customerIdController.text,
                               regNo: _regNoController.text,
+                              onSuccess: (response) {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text('Success'),
+                                      content: Text('Job created successfully'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child: Text('OK'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                              onError: (error) {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text('Error'),
+                                      content: Text('Job creation failed'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child: Text('OK'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
                             );
                             Navigator.pop(context);
                           }
