@@ -109,7 +109,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    if (_formKey.currentState!.validate()) {
+                    if (_formKey.currentState != null && _formKey.currentState!.validate()) {
                       String base64Image =
                           base64Encode(_image!.readAsBytesSync());
                       createJobCardApi(
