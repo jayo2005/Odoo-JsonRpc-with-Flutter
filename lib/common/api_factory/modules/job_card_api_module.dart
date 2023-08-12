@@ -40,9 +40,9 @@ Future<List<String>> getVehicleMakes() async {
   List<String> makes = [];
   try {
     await Api.read(
-      model: 'vehicle.make',
+      model: 'job.card',
       ids: [],
-      fields: ['name'],
+      fields: ['vehicle_brand_id'],
       onResponse: (response) {
         if (response != null) {
           for (var make in response) {
