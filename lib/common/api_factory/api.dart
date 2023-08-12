@@ -446,6 +446,6 @@ class Api {
     return {"lang": "en_US", "tz": "Europe/Brussels", "uid": Uuid().v1()};
   }
 }
-  static createJobCardWithImage(String base64Image, String customerId, String regNo) {
+  static Future<void> createJobCardWithImage(String base64Image, String customerId, String regNo) async {
     // TODO: Implement the API call to send the image, customer ID, and registration number to the Odoo API
   }
