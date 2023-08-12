@@ -36,13 +36,15 @@ class _JobCardCreateState extends State<JobCardCreate> {
         child: AppBar(
           title: Text('SoftCroft'),
           automaticallyImplyLeading: false,
+          ),
         ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
           key: _formKey,
-          child: Column(
+          child: SingleChildScrollView(
+            child: Column(
             children: <Widget>[
               TextFormField(
                 controller: _customerIdController,
