@@ -61,6 +61,26 @@ class _JobCardCreateState extends State<JobCardCreate> {
               if (_image != null)
                 Image.file(_image!),
               TextFormField(
+                controller: _vehicleMakeController,
+                decoration: InputDecoration(labelText: 'Vehicle Make'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a vehicle make';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _vehicleModelController,
+                decoration: InputDecoration(labelText: 'Vehicle Model'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a vehicle model';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
                 controller: _regNoController,
                 decoration: InputDecoration(labelText: 'Registration Number'),
                 validator: (value) {
