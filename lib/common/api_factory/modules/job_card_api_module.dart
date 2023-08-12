@@ -21,8 +21,6 @@ createJobCardApi({
       "customer_id": customerId,
       "reg_no": regNo,
       "vehicle_brand_id": vehicleBrandId,
-      "vehicle_model": vehicleModel,
-      "vehicle_brand_id": vehicleBrandId,
       "vehicle_model_id": vehicleModelId,
     },
     onResponse: (response) {
