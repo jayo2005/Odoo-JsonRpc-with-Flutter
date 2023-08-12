@@ -11,7 +11,7 @@ createJobCardApi({
   Api.create(
     model: "job.card",
     values: {
-      "base64_image": base64Image,
+      "avatar": base64Image,
       "customer_id": customerId,
       "reg_no": regNo,
     },
