@@ -24,8 +24,10 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _vehicleModelController = TextEditingController();
   String? _selectedVehicleMake;
   String? _selectedVehicleModel;
+  int? _selectedVehicleBrandId;
   List<String> _vehicleMakes = [];
   List<String> _vehicleModels = [];
+  List<int> _vehicleBrandIds = [];
   final _vehicleBrandIdController = TextEditingController();
   final _vehicleModelIdController = TextEditingController();
   final _imageController = TextEditingController();
