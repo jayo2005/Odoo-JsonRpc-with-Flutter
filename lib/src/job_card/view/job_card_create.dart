@@ -15,6 +15,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _formKey = GlobalKey<FormState>();
   final _customerIdController = TextEditingController();
   final _regNoController = TextEditingController();
+  final _vehicleBrandIdController = TextEditingController();
+  final _vehicleModelIdController = TextEditingController();
   final _imageController = TextEditingController();
   final _avatarUrlController = TextEditingController();
   File? _image;
@@ -76,6 +78,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
                       base64Image: base64Image,
                       customerId: _customerIdController.text,
                       regNo: _regNoController.text,
+                      vehicleBrandId: int.parse(_vehicleBrandIdController.text),
+                      vehicleModelId: int.parse(_vehicleModelIdController.text),
                       onSuccess: () {
                         print('Job card created successfully');
                       },

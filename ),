@@ -1,0 +1,20 @@
+              TextFormField(
+                controller: _vehicleBrandIdController,
+                decoration: InputDecoration(labelText: 'Vehicle Brand ID'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a vehicle brand id';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _vehicleModelIdController,
+                decoration: InputDecoration(labelText: 'Vehicle Model ID'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a vehicle model id';
+                  }
+                  return null;
+                },
+              ),

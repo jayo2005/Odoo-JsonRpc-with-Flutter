@@ -5,6 +5,8 @@ createJobCardApi({
   required String base64Image,
   required String customerId,
   required String regNo,
+  required int vehicleBrandId,
+  required int vehicleModelId,
   required Function onSuccess,
   required Function onError,
 }) {
@@ -14,6 +16,8 @@ createJobCardApi({
       "avatar": base64Image,
       "customer_id": customerId,
       "reg_no": regNo,
+      "vehicle_brand_id": vehicleBrandId,
+      "vehicle_model_id": vehicleModelId,
     },
     onResponse: (response) {
       print('Job card created with id: ${response}');
