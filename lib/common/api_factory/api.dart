@@ -448,4 +448,8 @@ class Api {
 }
   static Future<void> createJobCardWithImage(String base64Image, String customerId, String regNo) async {
     // TODO: Implement the API call to send the image, customer ID, and registration number to the Odoo API
+    // For now, let's just print the parameters to the console
+    print('Base64 Image: $base64Image');
+    print('Customer ID: $customerId');
+    print('Registration Number: $regNo');
   }
