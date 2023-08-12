@@ -18,7 +18,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
   File? _image;
 
   Future<void> createJobCardApiWithImage(String base64Image, String customerId, String regNo) async {
-    // TODO: Implement the API call to send the image, customer ID, and registration number to the Odoo API
+    await Api.createJobCardWithImage(base64Image, customerId, regNo);
   }
 
   @override
