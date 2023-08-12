@@ -118,10 +118,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
                         regNo: _regNoController.text,
                         vehicleMake: _selectedVehicleMake ?? '',
                         vehicleModel: _selectedVehicleModel ?? '',
-                        vehicleBrandId:
-                            int.parse(_vehicleBrandIdController.text),
-                        vehicleModelId:
-                            int.parse(_vehicleModelIdController.text),
+                        vehicleBrandId: _vehicleBrandIdController.text.isNotEmpty ? int.parse(_vehicleBrandIdController.text) : 0,
+                        vehicleModelId: _vehicleModelIdController.text.isNotEmpty ? int.parse(_vehicleModelIdController.text) : 0,
                         onSuccess: () {
                           print('Job card created successfully');
                         },
