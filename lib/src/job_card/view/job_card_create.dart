@@ -27,7 +27,6 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _avatarUrlController = TextEditingController();
   File? _image;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,15 +35,16 @@ class _JobCardCreateState extends State<JobCardCreate> {
         child: AppBar(
           title: Text('SoftCroft'),
           automaticallyImplyLeading: false,
-          ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Column(
+    );
+    body:
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
             children: <Widget>[
               TextFormField(
                 controller: _customerIdController,
@@ -58,16 +58,17 @@ class _JobCardCreateState extends State<JobCardCreate> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  final pickedFile = await ImagePicker().getImage(source: ImageSource.camera);
+                  final pickedFile =
+                      await ImagePicker().getImage(source: ImageSource.camera);
                   if (pickedFile != null) {
                     _image = File(pickedFile.path);
-                    _imageController.text = base64Encode(_image!.readAsBytesSync());
+                    _imageController.text =
+                        base64Encode(_image!.readAsBytesSync());
                   }
                 },
                 child: Text('Take Picture'),
               ),
-              if (_image != null)
-                Image.file(_image!),
+              if (_image != null) Image.file(_image!),
               DropdownButtonFormField(
                 value: _selectedVehicleMake,
                 items: _vehicleMakes.map((make) {
@@ -111,7 +112,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    String base64Image = base64Encode(_image!.readAsBytesSync());
+                    String base64Image =
+                        base64Encode(_image!.readAsBytesSync());
                     createJobCardApi(
                       base64Image: base64Image,
                       customerId: _customerIdController.text,
