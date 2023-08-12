@@ -85,7 +85,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     String base64Image = base64Encode(_image!.readAsBytesSync());
-                    await createJobCardApiWithImage(base64Image, _customerIdController.text, _regNoController.text);
+                    await Api.createJobCardWithImage(base64Image, _customerIdController.text, _regNoController.text);
                   }
                 },
                 child: Text('Submit'),
