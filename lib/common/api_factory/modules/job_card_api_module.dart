@@ -22,7 +22,6 @@ createJobCardApi({
     onError: (error, data) {
       handleApiError(error);
       onError();
-      return Future.value(null);
     },
   );
 }
