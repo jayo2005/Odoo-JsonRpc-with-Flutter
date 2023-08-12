@@ -76,7 +76,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    _selectedVehicleMake = value;
+                    _selectedVehicleMake = value as String?;
                   });
                 },
                 decoration: InputDecoration(labelText: 'Vehicle Make'),
@@ -91,7 +91,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    _selectedVehicleModel = value;
+                    _selectedVehicleModel = value as String?;
                   });
                 },
                 decoration: InputDecoration(labelText: 'Vehicle Model'),
