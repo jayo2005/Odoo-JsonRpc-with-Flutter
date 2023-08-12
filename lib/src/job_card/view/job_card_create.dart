@@ -37,7 +37,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
           automaticallyImplyLeading: false,
         ),
       ),
-      body:
+      body: Padding(
     Padding(
       padding: const EdgeInsets.all(8.0),
       child: Form(
