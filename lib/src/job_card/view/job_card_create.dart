@@ -39,99 +39,102 @@ class _JobCardCreateState extends State<JobCardCreate> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                controller: _customerIdController,
-                decoration: InputDecoration(labelText: 'Customer ID'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a customer id';
-                  }
-                  return null;
-                },
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  final pickedFile =
-                      await ImagePicker().getImage(source: ImageSource.camera);
-                  if (pickedFile != null) {
-                    _image = File(pickedFile.path);
-                    _imageController.text =
-                        base64Encode(_image!.readAsBytesSync());
-                  }
-                },
-                child: Text('Take Picture'),
-              ),
-              if (_image != null) Image.file(_image!),
-              DropdownButtonFormField(
-                value: _selectedVehicleMake,
-                items: _vehicleMakes.map((make) {
-                  return DropdownMenuItem(
-                    value: make,
-                    child: Text(make),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _selectedVehicleMake = value as String?;
-                  });
-                },
-                decoration: InputDecoration(labelText: 'Vehicle Make'),
-              ),
-              DropdownButtonFormField(
-                value: _selectedVehicleModel,
-                items: _vehicleModels.map((model) {
-                  return DropdownMenuItem(
-                    value: model,
-                    child: Text(model),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _selectedVehicleModel = value as String?;
-                  });
-                },
-                decoration: InputDecoration(labelText: 'Vehicle Model'),
-              ),
-              TextFormField(
-                controller: _regNoController,
-                decoration: InputDecoration(labelText: 'Registration Number'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a registration number';
-                  }
-                  return null;
-                },
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
-                    String base64Image =
-                        base64Encode(_image!.readAsBytesSync());
-                    createJobCardApi(
-                      base64Image: base64Image,
-                      customerId: _customerIdController.text,
-                      regNo: _regNoController.text,
-                      vehicleMake: _selectedVehicleMake ?? '',
-                      vehicleModel: _selectedVehicleModel ?? '',
-                      vehicleBrandId: int.parse(_vehicleBrandIdController.text),
-                      vehicleModelId: int.parse(_vehicleModelIdController.text),
-                      onSuccess: () {
-                        print('Job card created successfully');
-                      },
-                      onError: () {
-                        print('Failed to create job card');
-                      },
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  controller: _customerIdController,
+                  decoration: InputDecoration(labelText: 'Customer ID'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a customer id';
+                    }
+                    return null;
+                  },
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    final pickedFile = await ImagePicker()
+                        .getImage(source: ImageSource.camera);
+                    if (pickedFile != null) {
+                      _image = File(pickedFile.path);
+                      _imageController.text =
+                          base64Encode(_image!.readAsBytesSync());
+                    }
+                  },
+                  child: Text('Take Picture'),
+                ),
+                if (_image != null) Image.file(_image!),
+                DropdownButtonFormField(
+                  value: _selectedVehicleMake,
+                  items: _vehicleMakes.map((make) {
+                    return DropdownMenuItem(
+                      value: make,
+                      child: Text(make),
                     );
-                  }
-                },
-                child: Text('Submit'),
-              ),
-            ],
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedVehicleMake = value as String?;
+                    });
+                  },
+                  decoration: InputDecoration(labelText: 'Vehicle Make'),
+                ),
+                DropdownButtonFormField(
+                  value: _selectedVehicleModel,
+                  items: _vehicleModels.map((model) {
+                    return DropdownMenuItem(
+                      value: model,
+                      child: Text(model),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedVehicleModel = value as String?;
+                    });
+                  },
+                  decoration: InputDecoration(labelText: 'Vehicle Model'),
+                ),
+                TextFormField(
+                  controller: _regNoController,
+                  decoration: InputDecoration(labelText: 'Registration Number'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a registration number';
+                    }
+                    return null;
+                  },
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      String base64Image =
+                          base64Encode(_image!.readAsBytesSync());
+                      createJobCardApi(
+                        base64Image: base64Image,
+                        customerId: _customerIdController.text,
+                        regNo: _regNoController.text,
+                        vehicleMake: _selectedVehicleMake ?? '',
+                        vehicleModel: _selectedVehicleModel ?? '',
+                        vehicleBrandId:
+                            int.parse(_vehicleBrandIdController.text),
+                        vehicleModelId:
+                            int.parse(_vehicleModelIdController.text),
+                        onSuccess: () {
+                          print('Job card created successfully');
+                        },
+                        onError: () {
+                          print('Failed to create job card');
+                        },
+                      );
+                    }
+                  },
+                  child: Text('Submit'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
