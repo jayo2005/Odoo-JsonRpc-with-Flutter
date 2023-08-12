@@ -20,7 +20,7 @@ createJobCardApi({
       "avatar": base64Image,
       "customer_id": customerId,
       "reg_no": regNo,
-      "vehicle_make": vehicleMake,
+      "vehicle_brand_id": vehicleBrandId,
       "vehicle_model": vehicleModel,
       "vehicle_brand_id": vehicleBrandId,
       "vehicle_model_id": vehicleModelId,
