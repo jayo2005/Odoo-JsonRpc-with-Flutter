@@ -44,8 +44,10 @@ Future<List<String>> getVehicleMakes() async {
       ids: [],
       fields: ['name'],
       onResponse: (response) {
-        for (var make in response) {
-          makes.add(make['name']);
+        if (response != null) {
+          for (var make in response) {
+            makes.add(make['name']);
+          }
         }
       },
       onError: (error, data) {
@@ -66,8 +68,10 @@ Future<List<String>> getVehicleModels() async {
       ids: [],
       fields: ['name'],
       onResponse: (response) {
-        for (var model in response) {
-          models.add(model['name']);
+        if (response != null) {
+          for (var model in response) {
+            models.add(model['name']);
+          }
         }
       },
       onError: (error, data) {
