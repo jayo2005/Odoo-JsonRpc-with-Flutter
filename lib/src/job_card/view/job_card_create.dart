@@ -61,13 +61,28 @@ class _JobCardCreateState extends State<JobCardCreate> {
                   return null;
                 },
               ),
+              TextFormField(
+                controller: _avatarUrlController,
+                decoration: InputDecoration(labelText: 'Avatar URL'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter an avatar URL';
+                  }
+                  return null;
+                },
+              ),
+              Container(
+                child: _avatarUrlController.text.isEmpty
+                    ? Text('No image')
+                    : Image.network(_avatarUrlController.text),
+              ),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     createJobCardApiWithImage(
                       customerId: _customerIdController.text,
                       regNo: _regNoController.text,
-                      avatar: _imageController.text,
+                      avatar: _avatarUrlController.text,
                       onSuccess: (response) {
                         showDialog(
                           context: context,

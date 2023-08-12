@@ -27,16 +27,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              showLogoutDialog();
-            },
-            icon: Icon(Icons.exit_to_app),
-          ),
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBar(
+          title: Text('SoftCroft'),
+          automaticallyImplyLeading: false,
+        ),
       ),
       body: _currentIndex == 0 ? _buildContacts() : Container(),
       bottomNavigationBar: BottomNavigationBar(
