@@ -12,6 +12,11 @@ class JobCardCreate extends StatefulWidget {
 }
 
 class _JobCardCreateState extends State<JobCardCreate> {
+  String? selectedMake;
+  String? selectedModel;
+  List<String> makes = [];
+  List<String> models = [];
+
   final _formKey = GlobalKey<FormState>();
   final _customerIdController = TextEditingController();
   final _regNoController = TextEditingController();
@@ -28,6 +33,13 @@ class _JobCardCreateState extends State<JobCardCreate> {
   File? _image;
 
   @override
+  @override
+  void initState() {
+    super.initState();
+    getVehicleMakes().then((result) => setState(() => makes = result));
+    getVehicleModels().then((result) => setState(() => models = result));
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
@@ -109,7 +121,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+                    if (_formKey.currentState != null &&
+                        _formKey.currentState!.validate()) {
                       String base64Image =
                           base64Encode(_image!.readAsBytesSync());
                       createJobCardApi(
@@ -118,8 +131,14 @@ class _JobCardCreateState extends State<JobCardCreate> {
                         regNo: _regNoController.text,
                         vehicleMake: _selectedVehicleMake ?? '',
                         vehicleModel: _selectedVehicleModel ?? '',
-                        vehicleBrandId: _vehicleBrandIdController.text.isNotEmpty ? int.parse(_vehicleBrandIdController.text) : 0,
-                        vehicleModelId: _vehicleModelIdController.text.isNotEmpty ? int.parse(_vehicleModelIdController.text) : 0,
+                        vehicleBrandId:
+                            _vehicleBrandIdController.text.isNotEmpty
+                                ? int.parse(_vehicleBrandIdController.text)
+                                : 0,
+                        vehicleModelId:
+                            _vehicleModelIdController.text.isNotEmpty
+                                ? int.parse(_vehicleModelIdController.text)
+                                : 0,
                         onSuccess: () {
                           print('Job card created successfully');
                         },
