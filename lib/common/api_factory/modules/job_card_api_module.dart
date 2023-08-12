@@ -38,12 +38,22 @@ Future<List<String>> getVehicleMakes() async {
   // Call the Odoo API to fetch the vehicle makes
   // The actual implementation may vary depending on your Odoo server and API
   // If the API call fails or doesn't return any data, return an empty list
-  return [];
+  var response = await http.get('https://your-api-url.com/vehicle-makes');
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    return [];
+  }
 }
 
 Future<List<String>> getVehicleModels() async {
   // Call the Odoo API to fetch the vehicle models
   // The actual implementation may vary depending on your Odoo server and API
   // If the API call fails or doesn't return any data, return an empty list
-  return [];
+  var response = await http.get('https://your-api-url.com/vehicle-models');
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    return [];
+  }
 }
