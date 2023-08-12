@@ -33,3 +33,13 @@ createJobCardApi({
     },
   );
 }
+
+Future<List<String>> getVehicleMakes() async {
+  // Call the Odoo API to fetch the vehicle makes
+  // The actual implementation may vary depending on your Odoo server and API
+}
+
+Future<List<String>> getVehicleModels() async {
+  // Call the Odoo API to fetch the vehicle models
+  // The actual implementation may vary depending on your Odoo server and API
+}

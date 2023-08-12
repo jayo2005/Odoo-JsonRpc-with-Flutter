@@ -15,8 +15,10 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _formKey = GlobalKey<FormState>();
   final _customerIdController = TextEditingController();
   final _regNoController = TextEditingController();
-  final _vehicleMakeController = TextEditingController();
-  final _vehicleModelController = TextEditingController();
+  String? _selectedVehicleMake;
+  String? _selectedVehicleModel;
+  List<String> _vehicleMakes = [];
+  List<String> _vehicleModels = [];
   final _vehicleBrandIdController = TextEditingController();
   final _vehicleModelIdController = TextEditingController();
   final _imageController = TextEditingController();

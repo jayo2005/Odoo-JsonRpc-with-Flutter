@@ -1,0 +1,10 @@
+    getVehicleMakes().then((makes) {
+      setState(() {
+        _vehicleMakes = makes;
+      });
+    });
+    getVehicleModels().then((models) {
+      setState(() {
+        _vehicleModels = models;
+      });
+    });
