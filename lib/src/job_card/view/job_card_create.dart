@@ -17,9 +17,6 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _avatarUrlController = TextEditingController();
   File? _image;
 
-  Future<void> createJobCardApiWithImage(String base64Image, String customerId, String regNo) async {
-    await Api.createJobCardWithImage(base64Image, customerId, regNo);
-  }
 
   @override
   Widget build(BuildContext context) {
