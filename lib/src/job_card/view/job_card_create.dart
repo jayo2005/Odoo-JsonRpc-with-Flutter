@@ -116,8 +116,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
                       base64Image: base64Image,
                       customerId: _customerIdController.text,
                       regNo: _regNoController.text,
-                      vehicleMake: _selectedVehicleMake,
-                      vehicleModel: _selectedVehicleModel,
+                      vehicleMake: _selectedVehicleMake ?? '',
+                      vehicleModel: _selectedVehicleModel ?? '',
                       vehicleBrandId: int.parse(_vehicleBrandIdController.text),
                       vehicleModelId: int.parse(_vehicleModelIdController.text),
                       onSuccess: () {
