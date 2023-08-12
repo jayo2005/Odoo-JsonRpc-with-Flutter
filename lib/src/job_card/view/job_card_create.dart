@@ -37,24 +37,23 @@ class _JobCardCreateState extends State<JobCardCreate> {
           automaticallyImplyLeading: false,
         ),
       ),
-      body:
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                controller: _customerIdController,
-                decoration: InputDecoration(labelText: 'Customer ID'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a customer id';
-                  }
-                  return null;
-                },
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  controller: _customerIdController,
+                  decoration: InputDecoration(labelText: 'Customer ID'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a customer id';
+                    }
+                    return null;
+                  },
+                ),
               ElevatedButton(
                 onPressed: () async {
                   final pickedFile =
