@@ -445,7 +445,7 @@ class Api {
   static Map getContext() {
     return {"lang": "en_US", "tz": "Europe/Brussels", "uid": Uuid().v1()};
   }
-}
+
   static Future<void> createJobCardWithImage(String base64Image, String customerId, String regNo) async {
     // TODO: Implement the API call to send the image, customer ID, and registration number to the Odoo API
     // For now, let's just print the parameters to the console
@@ -453,3 +453,4 @@ class Api {
     print('Customer ID: $customerId');
     print('Registration Number: $regNo');
   }
+}
