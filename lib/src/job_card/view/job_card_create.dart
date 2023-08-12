@@ -81,20 +81,15 @@ class _JobCardCreateState extends State<JobCardCreate> {
                   child: Text('Take Picture'),
                 ),
                 if (_image != null) Image.file(_image!),
-                DropdownButtonFormField(
-                  value: _selectedVehicleBrandId,
-                  items: _vehicleBrandIds.map((brandId) {
-                    return DropdownMenuItem(
-                      value: brandId,
-                      child: Text(brandId.toString()),
-                    );
-                  }).toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedVehicleMake = value as String?;
-                    });
-                  },
+                TextFormField(
+                  controller: _vehicleMakeController,
                   decoration: InputDecoration(labelText: 'Vehicle Make'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a vehicle make';
+                    }
+                    return null;
+                  },
                 ),
                 DropdownButtonFormField(
                   value: _selectedVehicleModel,
