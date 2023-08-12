@@ -80,11 +80,11 @@ class _JobCardCreateState extends State<JobCardCreate> {
                 ),
                 if (_image != null) Image.file(_image!),
                 DropdownButtonFormField(
-                  value: _selectedVehicleMake,
-                  items: _vehicleMakes.map((make) {
+                  value: _selectedVehicleBrandId,
+                  items: _vehicleBrandIds.map((brandId) {
                     return DropdownMenuItem(
-                      value: make,
-                      child: Text(make),
+                      value: brandId,
+                      child: Text(brandId.toString()),
                     );
                   }).toList(),
                   onChanged: (value) {
