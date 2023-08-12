@@ -15,6 +15,8 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _formKey = GlobalKey<FormState>();
   final _customerIdController = TextEditingController();
   final _regNoController = TextEditingController();
+  final _vehicleMakeController = TextEditingController();
+  final _vehicleModelController = TextEditingController();
   String? _selectedVehicleMake;
   String? _selectedVehicleModel;
   List<String> _vehicleMakes = [];
@@ -64,25 +66,35 @@ class _JobCardCreateState extends State<JobCardCreate> {
               ),
               if (_image != null)
                 Image.file(_image!),
-              TextFormField(
-                controller: _vehicleMakeController,
+              DropdownButtonFormField(
+                value: _selectedVehicleMake,
+                items: _vehicleMakes.map((make) {
+                  return DropdownMenuItem(
+                    value: make,
+                    child: Text(make),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedVehicleMake = value;
+                  });
+                },
                 decoration: InputDecoration(labelText: 'Vehicle Make'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a vehicle make';
-                  }
-                  return null;
-                },
               ),
-              TextFormField(
-                controller: _vehicleModelController,
-                decoration: InputDecoration(labelText: 'Vehicle Model'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a vehicle model';
-                  }
-                  return null;
+              DropdownButtonFormField(
+                value: _selectedVehicleModel,
+                items: _vehicleModels.map((model) {
+                  return DropdownMenuItem(
+                    value: model,
+                    child: Text(model),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedVehicleModel = value;
+                  });
                 },
+                decoration: InputDecoration(labelText: 'Vehicle Model'),
               ),
               TextFormField(
                 controller: _regNoController,
