@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:odoo_common_code_latest/common/api_factory/api.dart';
+import 'package:odoo_common_code_latest/common/api_factory/modules/job_card_api_module.dart';
 import 'package:odoo_common_code_latest/common/api_factory/api.dart';
 
 class JobCardCreate extends StatefulWidget {
@@ -67,26 +68,21 @@ class _JobCardCreateState extends State<JobCardCreate> {
                   return null;
                 },
               ),
-              TextFormField(
-                controller: _avatarUrlController,
-                decoration: InputDecoration(labelText: 'Avatar URL'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter an avatar URL';
-                  }
-                  return null;
-                },
-              ),
-              Container(
-                child: _avatarUrlController.text.isEmpty
-                    ? Text('No image')
-                    : Image.network(_avatarUrlController.text),
-              ),
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     String base64Image = base64Encode(_image!.readAsBytesSync());
-                    await Api.createJobCardWithImage(base64Image, _customerIdController.text, _regNoController.text);
+                    createJobCardApi(
+                      base64Image: base64Image,
+                      customerId: _customerIdController.text,
+                      regNo: _regNoController.text,
+                      onSuccess: () {
+                        print('Job card created successfully');
+                      },
+                      onError: () {
+                        print('Failed to create job card');
+                      },
+                    );
                   }
                 },
                 child: Text('Submit'),
