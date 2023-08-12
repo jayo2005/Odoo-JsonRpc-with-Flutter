@@ -38,36 +38,44 @@ createJobCardApi({
 
 Future<List<String>> getVehicleMakes() async {
   List<String> makes = [];
-  Api.read(
-    model: 'vehicle.make',
-    ids: [],
-    fields: ['name'],
-    onResponse: (response) {
-      for (var make in response) {
-        makes.add(make['name']);
-      }
-    },
-    onError: (error, data) {
-      print('Failed to fetch vehicle makes: $error');
-    },
-  );
+  try {
+    await Api.read(
+      model: 'vehicle.make',
+      ids: [],
+      fields: ['name'],
+      onResponse: (response) {
+        for (var make in response) {
+          makes.add(make['name']);
+        }
+      },
+      onError: (error, data) {
+        print('Failed to fetch vehicle makes: $error');
+      },
+    );
+  } catch (e) {
+    print('Error fetching vehicle makes: $e');
+  }
   return makes;
 }
 
 Future<List<String>> getVehicleModels() async {
   List<String> models = [];
-  Api.read(
-    model: 'vehicle.model',
-    ids: [],
-    fields: ['name'],
-    onResponse: (response) {
-      for (var model in response) {
-        models.add(model['name']);
-      }
-    },
-    onError: (error, data) {
-      print('Failed to fetch vehicle models: $error');
-    },
-  );
+  try {
+    await Api.read(
+      model: 'vehicle.model',
+      ids: [],
+      fields: ['name'],
+      onResponse: (response) {
+        for (var model in response) {
+          models.add(model['name']);
+        }
+      },
+      onError: (error, data) {
+        print('Failed to fetch vehicle models: $error');
+      },
+    );
+  } catch (e) {
+    print('Error fetching vehicle models: $e');
+  }
   return models;
 }
