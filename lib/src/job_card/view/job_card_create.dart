@@ -122,7 +122,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                         _formKey.currentState!.validate()) {
                       String base64Image =
                           base64Encode(_image!.readAsBytesSync());
-                      createJobCardApi(
+                      Api.createJobCardApi(
                         base64Image: base64Image,
                         customerId: _customerIdController.text,
                         regNo: _regNoController.text,
