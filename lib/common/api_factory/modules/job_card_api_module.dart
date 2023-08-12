@@ -57,3 +57,38 @@ Future<List<String>> getVehicleModels() async {
     return [];
   }
 }
+Future<List<String>> getVehicleMakes() async {
+  List<String> makes = [];
+  Api.read(
+    model: 'vehicle.make',
+    ids: [],
+    fields: ['name'],
+    onResponse: (response) {
+      for (var make in response) {
+        makes.add(make['name']);
+      }
+    },
+    onError: (error, data) {
+      print('Failed to fetch vehicle makes: $error');
+    },
+  );
+  return makes;
+}
+
+Future<List<String>> getVehicleModels() async {
+  List<String> models = [];
+  Api.read(
+    model: 'vehicle.model',
+    ids: [],
+    fields: ['name'],
+    onResponse: (response) {
+      for (var model in response) {
+        models.add(model['name']);
+      }
+    },
+    onError: (error, data) {
+      print('Failed to fetch vehicle models: $error');
+    },
+  );
+  return models;
+}
