@@ -38,8 +38,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
         ),
       ),
       body: Padding(
-    Padding(
-      padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
       child: Form(
         key: _formKey,
         child: SingleChildScrollView(
