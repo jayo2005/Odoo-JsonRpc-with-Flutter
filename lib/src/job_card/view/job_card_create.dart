@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:odoo_common_code_latest/common/api_factory/modules/job_card_api_module.dart';
@@ -13,6 +14,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _customerIdController = TextEditingController();
   final _regNoController = TextEditingController();
   final _imageController = TextEditingController();
+  final _avatarUrlController = TextEditingController();
   File? _image;
 
   @override
