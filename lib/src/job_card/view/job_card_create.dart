@@ -17,6 +17,10 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _avatarUrlController = TextEditingController();
   File? _image;
 
+  Future<void> createJobCardApiWithImage(String base64Image, String customerId, String regNo) async {
+    // TODO: Implement the API call to send the image, customer ID, and registration number to the Odoo API
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,52 +85,10 @@ class _JobCardCreateState extends State<JobCardCreate> {
                     : Image.network(_avatarUrlController.text),
               ),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    createJobCardApiWithImage(
-                      customerId: _customerIdController.text,
-                      regNo: _regNoController.text,
-                      avatar: _avatarUrlController.text,
-                      onSuccess: (response) {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('Success'),
-                              content: Text('Job created successfully'),
-                              actions: <Widget>[
-                                TextButton(
-                                  child: Text('OK'),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                      onError: (error) {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('Error'),
-                              content: Text('Job creation failed'),
-                              actions: <Widget>[
-                                TextButton(
-                                  child: Text('OK'),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                    );
-                    Navigator.pop(context);
+                    String base64Image = base64Encode(_image!.readAsBytesSync());
+                    await createJobCardApiWithImage(base64Image, _customerIdController.text, _regNoController.text);
                   }
                 },
                 child: Text('Submit'),
