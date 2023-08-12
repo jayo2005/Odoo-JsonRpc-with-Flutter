@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:odoo_common_code_latest/common/utils/utils.dart';
 import 'package:odoo_common_code_latest/common/api_factory/api.dart';
 
@@ -69,5 +71,3 @@ Future<List<String>> getVehicleModels() async {
   );
   return models;
 }
-import 'dart:convert';
-import 'package:http/http.dart' as http;
