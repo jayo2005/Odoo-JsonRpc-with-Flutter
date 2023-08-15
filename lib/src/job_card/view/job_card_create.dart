@@ -23,13 +23,13 @@ class _JobCardCreateState extends State<JobCardCreate> {
   final _vehicleMakeController = TextEditingController();
   final _vehicleModelController = TextEditingController();
   String? _selectedVehicleMake;
-  String? _selectedVehicleModel;
+  // Removed _selectedVehicleModel
   int? _selectedVehicleBrandId;
   List<String> _vehicleMakes = [];
-  List<String> _vehicleModels = [];
+  // Removed _vehicleModels
   List<int> _vehicleBrandIds = [];
   final _vehicleBrandIdController = TextEditingController();
-  final _vehicleModelIdController = TextEditingController();
+  // Removed _vehicleModelIdController
   final _imageController = TextEditingController();
   final _avatarUrlController = TextEditingController();
   File? _image;
@@ -91,21 +91,7 @@ class _JobCardCreateState extends State<JobCardCreate> {
                     return null;
                   },
                 ),
-                DropdownButtonFormField(
-                  value: _selectedVehicleModel,
-                  items: _vehicleModels.map((model) {
-                    return DropdownMenuItem(
-                      value: model,
-                      child: Text(model),
-                    );
-                  }).toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedVehicleModel = value as String?;
-                    });
-                  },
-                  decoration: InputDecoration(labelText: 'Vehicle Model'),
-                ),
+                // Removed DropdownButtonFormField for vehicle model
                 TextFormField(
                   controller: _regNoController,
                   decoration: InputDecoration(labelText: 'Registration Number'),
